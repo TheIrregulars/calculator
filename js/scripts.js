@@ -1,24 +1,60 @@
-$(function() {
-	$("input.number").click(numberButtonClicked)
-});
+function clearPrompt() {
+	var prompt = document.getElementById("prompt");
+	prompt.value = '0';
+	storedNum = '0';
+	calculationFinished = true;
+	operation = operations.none;
+}
 
-var currentNumber = "";
+function clearPreviousResult() {
+	var prompt = document.getElementById("prompt");
+	if (calculationFinished) {
+		prompt.value = '0';
+		calculationFinished = false;
+	};
+}
 
-function numberButtonClicked(clickEvent) {
-	var numberClicked = clickEvent.target.value
+function numInput(digit) {
+	var prompt = document.getElementById("prompt")
+	clearPreviousResult();
+	if (prompt.value === '0') prompt.value = '';
+	prompt.value += digit;
 
-	currentNumber = currentNumber + numberClicked
+}
 
-	$("span#prompt").html(currentNumber)  
+function insertDecimal() {
+	var prompt = document.getElementById("prompt");
+	clearPreviousResult();
+	if (prompt.value.indexOf('.') === -1) prompt.value += '.'; 
 
-$(function() {
-	$("input.operator").click(operatorButtonClicked)
-});
+}
 
-	var currentOperator = currentNumber + numberClicked;
+operations = {
+	none: function(left, right) {
+		return right;
+	},
+	add: function(left, right) {
+		return left + right;
+	},
+};
 
-function operatorButtonClicked(Event) {
-	var operatorClicked = Event.target.value
+function setOperation(command) {
+	var prompt = document.getElementById("prompt");
+	calculate();
+	storedNum = prompt.value;
+	if (operations.hasOwnProperty(command)) {
+		operation = operations[command]; 
+	}
+}
 
-	$("span#prompt").html(currentOperator)
-};};
+function calculate() {
+	var prompt = document.getElementById("prompt");
+	prompt.value = operation(+storedNum, +prompt.value);
+	calculationFinished = true;
+	operation = operations.none;
+};
+
+if ('addEventListener' in window)
+	window.addEventListener('load', clearPrompt);
+else
+	window.attachEvent('onload', clearPrompt)
