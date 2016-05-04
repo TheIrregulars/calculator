@@ -36,6 +36,10 @@ operations = {
 	add: function(left, right) {
 		return left + right;
 	},
+
+	multiply: function(left, right) {
+		return left * right;
+	}
 };
 
 function setOperation(command) {
