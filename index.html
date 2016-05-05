@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/calc.css">
 		<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -12,36 +12,32 @@
 	<title>Calculator</title>
 	</head>
 	<body>
-		<h1>Calculator</h1>
+		<h1>Positivity Calculator</h1>
 		<form class="calcForm" name="calculator">
-		<table border=2>
-		<tr>
-			<td colspan=4></td>
 			<input type="text" class="calcPrompt" id="prompt" />
-		</tr>
-			<tr>
-				<td><input type="button" class="btn btn-default" value="1" onclick="numInput('1')" /></td>
-				<td><input type="button" class="btn btn-default" value="2" onclick="numInput('2')" /></td>
-				<td><input type="button" class="btn btn-default" value="3" onclick="numInput('3')" /></td>
-				<td><input type="button" class="btn btn-default" value="4" onclick="numInput('4')" /></td>
-			</tr>
-			<tr>
-				<td><input type="button" class="btn btn-default" value="5" onclick="numInput('5')" /></td>
-				<td><input type="button" class="btn btn-default" value="6" onclick="numInput('6')" /></td>
-				<td><input type="button" class="btn btn-default" value="7" onclick="numInput('7')" /></td>
-				<td><input type="button" class="btn btn-default" value="8" onclick="numInput('8')" /></td>
-			</tr>
-			<tr>
-				<td><input type="button" class="btn btn-default" value="9" onclick="numInput('9')" /></td>
-				<td><input type="button" class="btn btn-default" value="0" onclick="numInput('0')" /></td>
-				<td><input type="button" class="btn btn-default" value="+" onclick="setOperation('add')" /></td>
-				<td><input type="button" class="btn btn-default" value="*" onclick="setOperation('multiply')"></td>
-			</tr>
-			<tr>
-				<td><input type="button" class="btn btn-default" value="." onclick="insertDecimal('.')" /></td>
-				<td><input type="button" class="btn btn-default" value="=" onclick="calculate()" /></td>
-				<td><input type="button" class="btn btn-default" value="C" onclick="clearPrompt()"></td>
-			</tr>
+			<div class="calcRow">
+				<input type="button" class="btn btn-default" value="7" onclick="numInput('7')" />
+				<input type="button" class="btn btn-default" value="8" onclick="numInput('8')" />
+				<input type="button" class="btn btn-default" value="9" onclick="numInput('9')" />
+				<input type="button" class="btn btn-default" value="*" onclick="setOperation('multiply')" />
+			</div>
+			<div class="calcRow">
+				<input type="button" class="btn btn-default" value="4" onclick="numInput('4')" />
+				<input type="button" class="btn btn-default" value="5" onclick="numInput('5')" />
+				<input type="button" class="btn btn-default" value="6" onclick="numInput('6')" />
+				<input type="button" class="btn btn-default" value="+" onclick="setOperation('add')" />
+			</div>
+			<div class="calcRow">
+				<input type="button" class="btn btn-default" value="1" onclick="numInput('1')" />
+				<input type="button" class="btn btn-default" value="2" onclick="numInput('2')" />
+				<input type="button" class="btn btn-default" value="3" onclick="numInput('3')" />
+				<input type="button" class="btn btn-default" value="=" onclick="calculate()" />
+			</div>
+			<div class="calcRow">
+			<input type="button" class="btn btn-default" value="0" onclick="numInput('0')" />
+			<input type="button" class="btn btn-default" value="." onclick="insertDecimal('.')" />
+			<input type="button" class="btn btn-default" value="C" onclick="clearPrompt()">
+			</div>
 		</form>
  	</body>
 </html>
